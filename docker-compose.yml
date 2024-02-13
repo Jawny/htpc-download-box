@@ -120,6 +120,8 @@ services:
       - TZ=America/New_York
     volumes:
       - ${ROOT}/config/overseerr:/config
+      - ${ROOT}/complete/movies:/movies # movies folder
+      - ${ROOT}/complete/tv:/tv # tv shows folder
     ports:
       - 5055:5055
     restart: unless-stopped
@@ -151,14 +153,14 @@ services:
       #     - ${ROOT}/config/tdarr/logs:/app/logs
       #     - ${ROOT}/config/tdarr/transcode_cache:/temp
  
-  organizr:
-    container_name: organizr
-    image: organizr/organizr
-    restart: unless-stopped
-    environment:
-      - PUID=${PUID} # default user id, defined in .env
-      - PGID=${PGID} # default group id, defined in .env
-    ports:
-      - 80:80
-    volumes:
-      - ${ROOT}/config/organizr:/config
+      #  organizr:
+      #    container_name: organizr
+      #    image: organizr/organizr
+      #    restart: unless-stopped
+      #    environment:
+      #      - PUID=${PUID} # default user id, defined in .env
+      #      - PGID=${PGID} # default group id, defined in .env
+      #    ports:
+      #      - 80:80
+      #    volumes:
+      #      - ${ROOT}/config/organizr:/config
